@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { user, userCreate, userUpdate } from '../models/user.model';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { user, userCreate, userUpdate } from '../models/user.model';
 })
 export class UsersService {
 
-  url:string = 'http://localhost:2000/' 
+  url:string = environment.apiUrl;
 
   constructor(private http: HttpClient) { 
 

@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ModalCreatePedidoComponent } from '../components/Pedidos/modalCreatePedido/modalCreatePedido.component';
 import { productPedido } from '../models/pedido.model';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class PedidosService {
 
-  url:string = 'http://localhost:2000/' 
+  url:string = environment.apiUrl;
 
   constructor(
     private http: HttpClient

@@ -1,0 +1,52 @@
+<div class="mx-4 my-4">
+  <div class="row">
+    <div class="col-sm-6 d-flex justify-content-around align-items-center">
+      <input 
+        type="submit"
+        class="btn btn-primary mb-3"
+        name="create"
+        id="create"
+        value="Crear Nuevo Usuario"
+        (click)="openDialogCreate()"
+      >
+    </div>
+  </div>
+
+  <table class="table w-100">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Usuario</th>
+        <!--<th>Password</th>-->
+        <th>Editar/ Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of vRowUsers">
+        <th scope="row">{{row.ID}}</th>
+        <td>{{row.strNombre}}</td>
+        <td>{{row.strUsuario}}</td>
+        <!--<td>{{row.strPassword}}</td>-->
+        <td>
+          <button 
+            type="button"
+            class="btn btn-primary"
+            mat-button 
+            (click)="openDialog(row.ID)"
+          >
+            Editar
+          </button>
+          <button 
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteUser(row.ID)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

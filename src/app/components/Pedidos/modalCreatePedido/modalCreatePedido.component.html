@@ -1,0 +1,38 @@
+<form class="row g-3" [formGroup]="formProduct" (ngSubmit)="submit()">
+  <h2>Agregar Producto</h2>
+  <div class="col-md-6">
+    <label for="producto" class="form-label">Producto</label>
+    <select id="producto" class="form-select" formControlName="producto">
+      <option *ngFor="let row of vRowProducts" [value]="row.ID">{{row.strDescripcion}}</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="cantidad" class="form-label">Cantidad</label>
+    <input type="number" class="form-control" formControlName="cantidad" id="cantidad" min="0">
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary">Agregar</button>
+  </div>
+</form>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre Producto</th>
+      <th>Cantidad</th>
+      <th>Valor Unitario</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of vRowPedidos">
+      <td>{{row.strDescripcion}}</td>
+      <td>{{row.numCantidad}}</td>
+      <td>{{row.curValorUnitario | currency}}</td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="deletePedido(row.idPedido)">
+          Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

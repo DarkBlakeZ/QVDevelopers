@@ -1,0 +1,48 @@
+<div class="mx-4 my-4">
+  <div class="row">
+    <div class="col-sm-6 d-flex justify-content-around align-items-center">
+      <input 
+        type="submit"
+        class="btn btn-primary mb-3"
+        name="create"
+        id="create"
+        value="Crear Nuevo Pedido"
+        (click)="openDialog()"
+      >
+    </div>
+  </div>
+  <!--
+    
+  -->
+  <table class="table w-100 text-center">
+    <thead>
+      <tr>
+        <th># Pedido</th>
+        <th>Usuario</th>
+        <th>Nombre</th>
+        <th>Valor total</th>
+        <th>Fecha de creacion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of vRowPedidos">
+        <td scope="row">{{row.numPedido}}</td>
+        <td>{{row.nomUsuario}}</td>
+        <td>{{row.strNombre}}</td>
+        <td>{{row.curValorTotal | currency}}</td>
+        <td>{{row.dtmFechaCreacion.split('T')[0]}}</td>
+        <td>
+          <button 
+            type="button"
+            class="btn btn-primary"
+            mat-button 
+            (click)="openDialog(row.ID)"
+          >
+            Editar
+          </button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

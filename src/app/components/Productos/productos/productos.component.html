@@ -1,0 +1,50 @@
+<div class="mx-4 my-4">
+  <div class="row">
+    <div class="col-sm-6 d-flex justify-content-around align-items-center">
+      <input 
+        type="submit"
+        class="btn btn-primary mb-3"
+        name="create"
+        id="create"
+        value="Crear Nuevo Producto"
+        (click)="openDialogCreate()"
+      >
+    </div>
+  </div>
+
+  <table class="table w-100">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Valor</th>
+        <th>Editar/ Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of vRowProducts">
+        <th scope="row">{{row.ID}}</th>
+        <td>{{row.strDescripcion}}</td>
+        <td>{{row.curValor}}</td>
+        <td>
+          <button 
+            type="button"
+            class="btn btn-primary"
+            mat-button 
+            (click)="openDialog(row.ID)"
+          >
+            Editar
+          </button>
+          <button 
+            type="button"
+            class="btn btn-danger"
+            (click)="deleteProduct(row.ID)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>

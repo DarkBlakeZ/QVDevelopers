@@ -1,0 +1,15 @@
+<form [formGroup]="formProduct" (ngSubmit)="submit()">
+  <h2 class="text-center">Editar Producto</h2>
+  <br/>
+<div class="mb-3">
+  <label for="descripcion" class="form-label">Descripcion</label>
+  <input type="text" formControlName="descripcion" class="form-control" id="descripcion" placeholder="Ingrese nombre del producto">
+</div>
+<div class="mb-3">
+  <label for="valor" class="form-label">Valor</label>
+  <input type="number" formControlName="valor" class="form-control" id="valor" placeholder="Ingrese valor del producto">
+</div>
+<div class="mb-3 text-center">
+  <input type="submit" class="btn btn-primary" value="Editar">
+</div>
+</form>
